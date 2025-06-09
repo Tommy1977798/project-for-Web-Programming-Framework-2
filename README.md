@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+````markdown
+# 📚 Bookshelf – A Personal Reading Tracker
 
-First, run the development server:
+Bookshelf is a full-stack web application that helps users manage their reading habits, record notes, track statistics, and share their reading profile publicly. Built with **Next.js**, **MongoDB**, and **Tailwind CSS**, it offers a modern and responsive user experience with secure JWT authentication.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### ✅ User Account System
+- Register and log in with email and password
+- Password reset via email
+- JWT-based authentication with protected routes
+- Customize personal profile slug (e.g. `/profile/tom`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 📘 Book Management
+- Search and import books via **Google Books API**
+- Add/edit/delete books in personal library
+- Set reading status, rating, tags, and reading period
+- Upload and display book covers
 
-## Learn More
+### 📝 Reading Notes
+- Write notes for each book
+- Edit/delete notes
+- Set note visibility (public or private)
+- View all notes in a central overview
 
-To learn more about Next.js, take a look at the following resources:
+### 📊 Reading Statistics
+- Monthly reading progress chart
+- Reading status distribution
+- Most-used tags
+- Book categories based on Google Books
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🌐 Public Profile Page
+- Share a public profile with selected books and notes
+- Access via custom slug (e.g. `/profile/tom`)
+- Includes book grid and reading notes
+- View-only, no login required
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🔐 My Page (Private Dashboard)
+- View personal info (name, email, avatar)
+- Quick links to dashboard, books, notes
+- Fallback ID encoded from email if profileSlug not set
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✅ Completed Modules
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [x] **User Authentication**  
+- [x] **Book Management Module**  
+- [x] **Reading Notes Module**  
+- [x] **Reading Statistics Module**  
+- [x] **Public Profile Module**  
+- [x] **My Profile Page (`/me`)**  
+- [x] **Global Navigation Bar**
+
+---
+
+## 🐞 Known Issues & Bugs
+
+- 🔄 **"My Page" Redirects to Login Even After Login**  
+  In some cases, after logging in, clicking the "My Page" link redirects the user back to `/login` even though a valid session exists.  
+  Temporary fix: Refresh the page or visit `/me` manually.  
+  Permanent fix in progress.
+
+- 📄 **Slug Collision Not Handled**  
+  Currently, no validation prevents users from choosing the same `profileSlug`.
+
+- 🧹 **No Profile Editing Functionality Yet**  
+  Users cannot update their display name, avatar, or slug.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15 (App Router)](https://nextjs.org/)
+- **Database**: [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- **Authentication**: [NextAuth.js](https://next-auth.js.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Data Visualization**: [Recharts](https://recharts.org/)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+---
+
+## 📦 Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/bookshelf.git
+   cd bookshelf
+````
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Create `.env.local`:
+
+   ```env
+   MONGODB_URI=your-mongodb-uri
+   NEXTAUTH_SECRET=your-secret
+   NEXTAUTH_URL=http://localhost:3000
+   NEXT_PUBLIC_GOOGLE_BOOKS_API_KEY=your-google-api-key
+   ```
+
+4. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+---
+
